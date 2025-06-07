@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biodata Saya</title>
+  <style>
+@media (max-width: 768px) {
+  header.profil {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .tentang-portofolio {
+    flex-direction: column;
+  }
+
+  .tentang, .foto-lain {
+    flex: 1 1 100%;
+  }
+
+  .foto-profil img {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .tentang-portofolio > div, 
+  .portofolio table, 
+  #hubungi form, 
+  #hubungi iframe {
+    width: 100%;
+  }
+
+  .portofolio table {
+    font-size: 14px;
+  }
+
+  .portofolio th, .portofolio td {
+    padding: 8px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul li {
+    margin-bottom: 10px;
+  }
+}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f4f4f9;
+      color: #333;
+    }
+
+    nav {
+      background: #2c3e50;
+      padding: 15px 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+      position: relative;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      color: #e67e22;
+      text-decoration: underline;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 35px;
+      background: #34495e;
+      border-radius: 5px;
+      z-index: 1000;
+      min-width: 150px;
+    }
+
+    .dropdown-content li {
+      padding: 10px;
+    }
+
+    .dropdown-content li a {
+      color: #fff;
+    }
+
+    .dropdown.active .dropdown-content {
+      display: block;
+    }
+
+    header.profil {
+      display: flex;
+      align-items: center;
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .foto-profil img {
+      width: 150px;
+      height: 150px;
+      border-radius: 100px;
+      object-fit: cover;
+      margin-right: 30px;
+      border: 4px solid #2c3e50;
+    }
+
+    .deskripsi h1 {
+      font-size: 28px;
+      color: #2c3e50;
+    }
+
+    .deskripsi span {
+      color: #e67e22;
+    }
+
+    .deskripsi p {
+      font-size: 18px;
+      margin-top: 5px;
+    }
+
+    .tentang-portofolio {
+      display: flex;
+      padding: 30px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .tentang {
+      flex: 3;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    }
+
+    .tentang h2 {
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .foto-lain {
+      flex: 1;
+      text-align: center;
+    }
+
+    .foto-lain img {
+      width: 100%;
+      max-height: 250px;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    .portofolio {
+      padding: 30px;
+    }
+
+    .portofolio h2 {
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background: #34495e;
+      color: #fff;
+    }
+
+    a {
+      color: #e67e22;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #2c3e50;
+      color: #fff;
+      margin-top: 30px;
+    }
+
+    html {
+  scroll-behavior: smooth;
+}
+
+#toTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  z-index: 999;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #e67e22;
+  color: white;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#toTopBtn:hover {
+  background-color: #cf5e02;
+  transform: scale(1.1);
+}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#">Beranda</a></li>
+      <li><a href="#">Tentang Saya</a></li>
+      <li><a href="#">Portofolio</a></li>
+      <li class="dropdown">
+        <a id="dropdownToggle">Lainnya</a>
+        <ul class="dropdown-content">
+          <li><a href="https://www.instagram.com/ryf.1517_" target="_blank">Instagram</a></li>
+          <li><a href="https://www.facebook.com/rif.arf.75" target="_blank">Facebook</a></li>
+          <li><a href="https://www.tiktok.com/@msyame__?_t=ZS-8vls9tCc3XD&_r=1" target="_blank">TikTok</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <header class="profil">
+    <div class="foto-profil">
+      <img src="aib 1.jpg" alt="Foto Profil">
+    </div>
+    <div class="deskripsi">
+      <h1>Halo, saya <span>Syamsuddin Ma'arif</span></h1>
+      <p>Seorang <i>Mahasiswa UNUGIRI</i></p>
+    </div>
+  </header>
+
+  <section class="tentang-portofolio">
+    <div class="tentang">
+      <h2>Tentang Saya</h2>
+      <p>Halo! Aku M Syamsuddin Maarif, lahir di Bojonegoro tahun 2005. Aku suka banget sama teknologi, main game, dan selalu semangat buat belajar hal-hal baru. Buatku, belajar itu bagian dari petualangan seru di hidup ini! Aku juga suka berbagi ilmu dengan teman-teman, dan saat ini sedang mendalami pengembangan web serta desain grafis. Tujuan aku ke depan adalah bisa jadi developer yang bisa bantu banyak orang lewat teknologi.</p>
+    </div>
+    <div class="foto-lain">
+      <img src="aib 3.jpg" alt="Foto Lain">
+    </div>
+  </section>
+
+  <section class="portofolio">
+    <h2>Portofolio</h2>
+    <table>
+      <tr>
+        <th>No</th>
+        <th>Nama Kegiatan</th>
+        <th>Waktu Kegiatan</th>
+        <th>Bukti Kegiatan</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Kursus dan Pelatihan Komputer</td>
+        <td>2024</td>
+        <td><a href="kursus Komputer.jpg" target="_blank">Lihat Bukti</a></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Olimpiade KMNR</td>
+        <td>2017</td>
+        <td><a href="KMNR.jpg" target="_blank">Lihat Bukti</a></td>
+      </tr>
+    </table>
+  </section>
+  
+  <!-- Lainnya Untuk Anda -->
+<section style="padding: 40px; background-color: #f9f9f9;">
+  <h2 style="text-align: center; margin-bottom: 30px; font-family: Arial, sans-serif;">Lainnya Untuk Anda</h2>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+    <div class="card">
+      <img src="bakamla-ri-tangkap-kia-vietnam-di-perairan-natuna-utara-1_169.jpeg" alt="Berita 1">
+      <div class="card-content">
+        <h3>Nelayan Resah,Ratusan Kapal Vietnam Bebas Tangkap Ikan di laut Natuna</h3>
+        <p>Nelayan Natuna di Kepulauan Riau, merasa resah dengan keberadaan Kapal Ikan Asing (KIA) berbendera Vietnam yang bebas menangkap Ikan menggunakan pukat trawl di laut Natuna Utara.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="walid.jpeg" alt="Berita 2">
+      <div class="card-content">
+        <h3>Walid di dunia nyata? Pemimpin ponpes di NTB Cabuli 22 Santriwati</h3>
+        <p>puluhan santri itu ternyata melaporkan pelaku yang berinisial AF ke polisi. Dimana AF diduga sudah melakukan aksi bejat yang mengarah ke kekerasan seksual.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="jumbo.jpeg" alt="Berita 3">
+      <div class="card-content">
+        <h3>5 Film Terlaris hingga April 2025</h3>
+        <p>Bulan April 2025 menjadi momen yang menggembirakan bagi industri perfilman, khususnya di Indonesia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hubungi" style="margin-top: 40px;">
+  <h2>Hubungi Saya</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+      <form action="#" method="post" style="flex: 1 1 45%;">
+          <input type="email" placeholder="Email" required style="width: 100%; margin-bottom: 10px; padding: 8px;">
+          <input type="text" placeholder="Nama" required style="width: 100%; margin-bottom: 10px; padding: 8px;">
+          <input type="text" placeholder="Subjek" required style="width: 100%; margin-bottom: 10px; padding: 8px;">
+          <textarea placeholder="Pesan" required style="width: 100%; margin-bottom: 10px; padding: 8px;"></textarea>
+          <button type="submit" style="padding: 10px 20px;">Kirim</button>
+      </form>
+      <div style="flex: 1 1 45%;">
+        <h2 style="margin-bottom: 10px;">Lokasi Saya</h2>
+        <div style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.448531969957!2d111.905523!3d-7.845287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77691f5e9d9e89%3A0x3dc0f6e5b8a59f23!2sBangilan%2C%20Kapas%2C%20Kabupaten%20Bojonegoro%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1714117475672!5m2!1sid!2sid" width="100%" height="300" style="border:0; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer style="background-color: #333; color: white; text-align: center; padding: 20px; font-family: Arial, sans-serif;">
+  &copy; 2025 Syamsuddin Ma'arif. All rights reserved.
+</footer>
+
+<!-- CSS tambahan untuk Card -->
+<style>
+  .card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  .card:hover img {
+    transform: scale(1.05);
+  }
+</style>
+
+<!-- Tombol Kembali ke Atas -->
+<button onclick="topFunction()" id="toTopBtn" title="Kembali ke Atas">↑</button>
+
+<script>
+  const dropdownToggle = document.getElementById('dropdownToggle');
+  const dropdown = dropdownToggle.parentElement;
+
+  dropdownToggle.addEventListener('click', () => {
+    dropdown.classList.toggle('active');
+  });
+
+  window.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove('active');
+    }
+  });
+
+  // Script tombol ke atas
+  const toTopBtn = document.getElementById("toTopBtn");
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      toTopBtn.style.display = "block";
+    } else {
+      toTopBtn.style.display = "none";
+    }
+  };
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
+</body>
+</html>
